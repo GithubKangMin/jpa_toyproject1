@@ -1,0 +1,20 @@
+#설정파일
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop; # H2 DB를 TCP 모드로 사용
+    username: sa # H2 DB의 기본 사용자명
+    password:
+    driver-class-name: org.h2.Driver # H2 DB의 드라이버 클래스명
+
+  jpa: # JPA 설정
+    hibernate: # 하이버네이트 설정
+      ddl-auto: create # 애플리케이션 실행 시점에 테이블을 생성
+    properties: # 하이버네이트 설정 추가
+      hibernate:  # 하이버네이트 설정 추가
+#        show_sql: true # SQL을 보여줌 시스템아웃으로 출력
+        format_sql: true # SQL을 보기 좋게 출력
+
+logging.level: # 로깅 레벨 설정
+  org.hibernate.SQL: debug # SQL 로그를 보여줌 로거로 출력
+#  org.hibernate.type: trace
+
