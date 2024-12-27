@@ -20,7 +20,7 @@
             <tr th:each="member : ${members}">
                 <td th:text="${member.id}"></td>
                 <td th:text="${member.name}"></td>
-                <td th:text="${member.address?.city}"></td>
+                <td th:text="${member.address?.city}"></td> <!-- address가 null인 경우를 대비하여 ?. 연산자를 사용 -->
                 <td th:text="${member.address?.street}"></td>
                 <td th:text="${member.address?.zipcode}"></td>
             </tr>

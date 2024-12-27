@@ -13,11 +13,11 @@ public class ItemRepository {   // 상품 리포지토리
 
     private final EntityManager em; // 엔티티 매니저
 
-    public void save(Item item) {   // 상품 저장
+    public void save(Item item) {   // 상품 저장 // merge하지않고 변경감지를 사용해야 null이 안뜬다.
         if (item.getId() == null) { // 아이디가 없으면 새로운 상품
-            em.persist(item);
+            em.persist(item); // 영속성 컨텍스트에 저장 (insert 쿼리를 날리지 않아도 저장됨) 새로운 오브젝트이기 때문에 퍼시스트
         } else {    // 아이디가 있으면 이미 있는 상품
-            em.merge(item); // update 비슷한 기능
+            em.merge(item); // update 비슷한 기능 수정할 목적으로 불러온 애
         }
     }
 
